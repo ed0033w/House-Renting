@@ -13,6 +13,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
@@ -23,6 +24,29 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	<style>
+	#fund{
+		display: none;	
+	
+	}
+	#insurance{
+		display: none;	
+
+	}
+	table {
+		
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	th, td {
+		
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even){background-color: #f2f2f2}
+	</style>
 	</head>
 	<body class="homepage">
 
@@ -65,225 +89,196 @@
 			<!-- Extra -->
 			<div id="marketing" class="container">
 				<div class="row">
-					<div class="3u">
-						<section>
-							<header>
-								<h2>Feugiat Tempus</h2>
-							</header>
-							<p class="subtitle">In posuere eleifend odio. Quisque semper augue mattis maecenas ligula.</p>
-							<p><a href="#"><img src="images/pics13.jpg" alt=""></a></p>
-							<a href="#" class="button">More</a>
-						</section>
-					</div>
-					<div class="3u">
-						<section>
-							<header>
-								<h2>Maecenas lectus</h2>
-							</header>
-							<p class="subtitle">In posuere eleifend odio. Quisque semper augue mattis maecenas ligula.</p>
-							<p><a href="#"><img src="images/pics14.jpg" alt=""></a></p>
-							<a href="#" class="button">More</a>
-						</section>
-					</div>
-					<div class="3u">
-						<section>
-							<header>
-								<h2>Luctus lectus</h2>
-							</header>
-							<p class="subtitle">In posuere eleifend odio. Quisque semper augue mattis maecenas ligula.</p>
-							<p><a href="#"><img src="images/pics15.jpg" alt=""></a></p>
-							<a href="#" class="button">More</a>
-						</section>
-					</div>
-					<div class="3u">
-						<section>
-							<header>
-								<h2>Posuere eleifend</h2>
-							</header>
-							<p class="subtitle">In posuere eleifend odio. Quisque semper augue mattis maecenas ligula.</p>
-							<p><a href="#"><img src="images/pics16.jpg" alt=""></a></p>
-							<a href="#" class="button">More</a>
-						</section>
-					</div>
-				</div>
-			</div>
-			<!-- /Extra -->
+				<div class="6u ">
 				
-			<!-- Main -->
-			<div id="main" class="container">
+					
+				<button class="insurance_btn button" id="insurance_btn" >保險</button>
+				</div>
+				<div class="6u ">
+				<button class="fund_btn button"  id="fund_btn">基金</button>
+				
+				</div>
+				</div>
 				<div class="row">
-					<div class="6u">
-						<section>
-							<header>
-								<h2>Integer gravida nibh quis urna</h2>
-								<span class="byline">Augue praesent a lacus at urna congue rutrum</span>
-							</header>
-							<p>This is <strong>Ex Machina</strong>, a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit! Check out more of our stuff at <a href="http://templated.co">our site</a> or follow us on <a href="http://twitter.com/templatedco">Twitter</a>.</p>
-							<p>Sed etiam vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget lorem ipsum dolor. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat. Sed etiam vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat.</p>
-							<p>Sed etiam vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget lorem ipsum dolor. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat. Sed etiam vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat.</p>
-							<a href="#" class="button">More Details</a>
-						</section>
+				<div class="6u ">
+				<div style="overflow-x:auto;"id="insurance"class="">
+					<table ><!--collect from db-->
+						<tr>
+						<th>保險</th>
+						<th>Last Name</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						</tr>
+						<tr>
+						<td>Jill</td>
+						<td>Smith</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						</tr>
+						<tr>
+						<td>Eve</td>
+						<td>Jackson</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						</tr>
+						<tr>
+						<td>Adam</td>
+						<td>Johnson</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						</tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr><tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+						<tr><td>67</td></tr>
+					</table>
 					</div>
-					<div class="3u">
-						<section class="sidebar">
-							<header>
-								<h2>Feugiat Tempus</h2>
-							</header>
-							<ul class="style2">
-								<li>
-									<a href="#"><img src="images/pics07.jpg" alt=""></a>
-									<p>Donec leo, vivamus fermentum augue praesent a lacus at urna rutrum.</p>
-								</li>
-								<li>
-									<a href="#"><img src="images/pics08.jpg" alt=""></a>
-									<p>Donec leo, vivamus fermentum augue praesent a lacus at urna rutrum.</p>
-								</li>
-								<li>
-									<a href="#"><img src="images/pics09.jpg" alt=""></a>
-									<p>Donec leo, vivamus fermentum augue praesent a lacus at urna rutrum.</p>
-								</li>
-								<li>
-									<a href="#"><img src="images/pics10.jpg" alt=""></a>
-									<p>Donec leo, vivamus fermentum augue praesent a lacus at urna rutrum.</p>
-								</li>
-							</ul>						
-						</section>
-					</div>
-					<div class="3u">
-						<section class="sidebar">
-							<header>
-								<h2>Feugiat Tempus</h2>
-							</header>
-							<ul class="style1">
-								<li><a href="#">Maecenas luctus lectus at sapien</a></li>
-								<li><a href="#">Etiam rhoncus volutpat erat</a></li>
-								<li><a href="#">Donec dictum metus in sapien</a></li>
-								<li><a href="#">Nulla luctus eleifend purus</a></li>
-								<li><a href="#">Maecenas luctus lectus at sapien</a></li>
-							</ul>
-						</section>
-						<section class="sidebar">
-							<header>
-								<h2>Nulla luctus eleifend</h2>
-							</header>
-							<ul class="style1">
-								<li><a href="#">Maecenas luctus lectus at sapien</a></li>
-								<li><a href="#">Donec dictum metus in sapien</a></li>
-								<li><a href="#">Integer gravida nibh quis urna</a></li>
-								<li><a href="#">Etiam posuere augue sit amet nisl</a></li>
-								<li><a href="#">Mauris vulputate dolor sit amet nibh</a></li>
-							</ul>
-						</section>
-					</div>
+				</div>	
+				<div class="6u ">	
+				<div style="overflow-x:auto;"id="fund" class="">
+					<table ><!--collect from db-->
+						<tr>
+						<th>基金</th>
+						<th>Last Name</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						<th>Points</th>
+						</tr>
+						<tr>
+						<td>Jill</td>
+						<td>Smith</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						<td>50</td>
+						</tr>
+						<tr>
+						<td>Eve</td>
+						<td>Jackson</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						<td>94</td>
+						</tr>
+						<tr>
+						<td>Adam</td>
+						<td>Johnson</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						<td>67</td>
+						</tr>
+					</table>
+				</div>
 				</div>
 			</div>
+			
 			<!-- Main -->
-
+			</div>
 		</div>
 	<!-- /Main -->
 
-	<!-- Featured -->
-		<div id="featured">
-			<div class="container">
-				<div class="row">
-					<section class="4u">
-						<div class="box">
-							<a href="#" class="image left"><img src="images/pics04.jpg" alt=""></a>
-							<h3>Etiam posuere augue</h3>
-							<p>Donec nonummy magna quis risus eleifend. </p>
-							<a href="#" class="button">More</a>
-						</div>
-					</section>
-					<section class="4u">
-						<div class="box">
-							<a href="#" class="image left"><img src="images/pics05.jpg" alt=""></a>
-							<h3>Etiam posuere augue</h3>
-							<p>Donec nonummy magna quis risus eleifend. </p>
-							<a href="#" class="button">More</a>
-						</div>
-					</section>
-					<section class="4u">
-						<div class="box">
-							<a href="#" class="image left"><img src="images/pics06.jpg" alt=""></a>
-							<h3>Etiam posuere augue</h3>
-							<p>Donec nonummy magna quis risus eleifend. </p>
-							<a href="#" class="button">More</a>
-						</div>
-					</section>
-				</div>
-				<div class="divider"></div>
-			</div>
-		</div>
-	<!-- /Featured -->
 
-	<!-- Footer -->
-		<div id="footer">
-			<div class="container">
-				<div class="row">
-					<div class="3u">
-						<section>
-							<h2>Maecenas lectus</h2>
-							<div class="balloon">
-								<blockquote>&ldquo;&nbsp;&nbsp;Donec leo, vivamus ullamcorper fermentum nibh in augue pulvinar ullamcorper metus praesent a lacus at urna congue ullamcorper  rutrum.&nbsp;&nbsp;&rdquo;<br>
-									<br>
-									<strong>&ndash;&nbsp;&nbsp;John Smith</strong></blockquote>
-							</div>
-							<div class="ballon-bgbtm">&nbsp;</div>
-						</section>
-					</div>
-					<div class="3u">
-						<section>
-							<h2>Donec dictum</h2>
-							<ul class="default">
-								<li>
-									<h3>Mauris vulputate dolor sit amet</h3>
-									<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum.</a></p>
-								</li>
-								<li>
-									<h3>Fusce ultrices fringilla metus</h3>
-									<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum.</a></p>
-								</li>
-								<li>
-									<h3>Donec dictum metus in sapien</h3>
-									<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum.</a></p>
-								</li>
-							</ul>
-						</section>
-					</div>
-					<div class="3u">
-						<section>
-							<h2>Nulla leifend</h2>
-							<p>Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat.</p>
-							<ul class="style5">
-								<li><a href="#"><img src="images/pics07.jpg" alt=""></a></li>
-								<li><a href="#"><img src="images/pics08.jpg" alt=""></a></li>
-								<li><a href="#"><img src="images/pics09.jpg" alt=""></a></li>
-								<li><a href="#"><img src="images/pics10.jpg" alt=""></a></li>
-								<li><a href="#"><img src="images/pics11.jpg" alt=""></a></li>
-								<li><a href="#"><img src="images/pics12.jpg" alt=""></a></li>
-							</ul>
-							<a href="#" class="button">More Collections</a>
-						</section>
-					</div>
-					<div class="3u">
-						<section>
-							<h2>Luctus eleifend</h2>
-							<p><strong>Aliquam erat volutpat. Pellentesque tristique ante ut risus. </strong></p>
-							<p>Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit.</p>
-							<p>Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat.</p>
-							<a href="#" class="button">More Collections</a>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
-	<!-- /Footer -->
 
-	<!-- Copyright -->
-		<div id="copyright" class="container">
-			Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
-		</div>
 
 
 	</body>
+	
+<script >
+$(document).ready(function(){
+  	 $(".fund_btn").click(function(){
+		var divfund = $("#divfund")
+	
+		var fund  = $("#fund");
+	
+		divfund.animate({height: '800px', opacity: '0.4'}, "slow");
+        divfund.animate({width: '800px', opacity: '0.8'}, "slow");   
+    	$("#fund").slideToggle(2000);
+		
+	
+		 
+	});
+	 $(".insurance_btn").click(function(){
+		
+		var divinsurance = $("#divinsurance")
+	
+		var insurance = $("#insurance");
+		divinsurance.animate({height: '800px', opacity: '0.4'}, "slow");
+        divinsurance.animate({width: '800px', opacity: '0.8'}, "slow");   
+    	
+		$("#insurance").slideToggle(2000);
+	
+	
+		 
+	});
+});
+
+</script>
 </html>
