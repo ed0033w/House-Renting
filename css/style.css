@@ -97,6 +97,7 @@
 		header h2
 		{
 			font-size: 2.5em;
+			font-weight: bold;
 		}
 
 		header .byline
@@ -124,6 +125,7 @@
 		article
 		{
 			margin-bottom: 3em;
+			font-size: 15px;
 		}
 		
 		section > :last-child,
@@ -227,6 +229,7 @@
 			margin: 0;
 			padding: 0;
 			list-style: none;
+			text-align: center;
 		}
 		
 			ul.style1 li
@@ -234,6 +237,7 @@
 				padding: 0.60em 0em;
 				border-top: 1px solid;
 				border-color: rgba(0,0,0,.1);
+				font-size: 18px;
 			}
 			
 			ul.style1 li:first-child
@@ -259,6 +263,7 @@
 				padding: 1.90em 0em 1.60em 0em;
 				border-top: 1px solid;
 				border-color: rgba(0,0,0,.1);
+				font-size: 18px;
 			}
 			
 			ul.style2 li:first-child
@@ -272,7 +277,36 @@
 				float: left;
 				padding-right: 1em;
 			}
+		
+
+		ul.style3
+		{
+			margin: 0;	
+			padding: 0;
+			list-style: none;
+		}
+
+			ul.style3 li
+			{
+				padding: 1.20em 0em 1.00em 0em;
+				border-top: 1px solid;
+				border-color: rgba(0,0,0,.1);
+				font-size: 18px;
+			}
 			
+			ul.style3 li:first-child
+			{
+				padding-top: 0;
+				border-top: 0;
+			}
+
+			ul.style3 img
+			{
+				float: left;
+				padding-right: 1em;
+			}
+			
+
 		ul.style5
 		{
 			overflow: hidden;
@@ -843,7 +877,7 @@
 	#banner
 	{
 		position: relative;
-		padding: 12em 0em;
+		padding: 6em 0em;
 		background: url(../images/banner.jpg) no-repeat center;
 		background-size: cover;
 		color: #fff;
@@ -861,13 +895,14 @@
 
 	#main
 	{
-		border-top: 1px solid;
+		border-top: 10px solid;
 		border-color: rgba(0,0,0,.2);
 	}
 	
 	.sidebar header h2
 	{
 		font-size: 1.6em;
+		font-weight: bold;
 	}
 
 /*********************************************************************************/
@@ -963,21 +998,185 @@
 		font-style: normal;
 	}
 	
-	.balloon {
-		padding: 1.87em;
-		background: url(images/img08.jpg) repeat left top;
-		border-radius: 5px;
-		line-height: 180%;
-		font-size: 1.2em;
-		color: #333;
-	}
-	
-	.ballon-bgbtm {
-		height: 1.87em;
-	}
-	
-	.balloon strong
-	{
-		color: #333 !important;
+
+/*********************************************************************************/
+/* Slides                                                                        */
+/*********************************************************************************/
+
+	.slider_container {
+    	margin: 30px auto;
+    	width: 550px;
+    	height: 375px;
+    	position: relative;
+    	border: 10px solid;    
+    	border-color: #fff;
+    	border-bottom-width: 100px;
+    	background-color: #f5f5f5;
+    	box-shadow: #666 0 0 5px;
 	}
 
+	.slider_container div {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    opacity: 0;
+
+	    filter: alpha(opacity=0);
+	}
+
+	.slider_container div {
+    	-webkit-animation: round 25s linear infinite;
+            	animation: round 25s linear infinite;
+	}
+
+	@-webkit-keyframes round {
+    	4% {
+        	opacity: 1;
+        	filter: alpha(opacity=100);
+        /* 0 - 1秒 淡入*/
+    	}
+	    20% {
+	        opacity: 1;
+	        filter: alpha(opacity=100);
+	        /* 1- 5秒靜止*/
+	    }
+	    24% {
+	        opacity: 0;
+	        filter: alpha(opacity=0);
+	        /* 5-6秒淡出*/
+	    }
+	}
+	@keyframes round {
+	    4% {
+	        opacity: 1;
+	        filter: alpha(opacity=100);
+	        /* 0 - 1秒 淡入*/
+	    }
+	    20% {
+	        opacity: 1;
+	        filter: alpha(opacity=100);
+	        /* 1- 5秒靜止*/
+	    }
+	    24% {
+	        opacity: 0;
+	        filter: alpha(opacity=0);
+	        /* 5-6秒淡出*/
+	    }
+	}
+
+	.slider_container div:nth-child(5) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+	}
+
+	.slider_container div:nth-child(4) {
+	    -webkit-animation-delay: 5s;
+	            animation-delay: 5s;
+	}
+
+	.slider_container div:nth-child(3) {
+	    -webkit-animation-delay: 10s;
+	            animation-delay: 10s;
+	}
+
+	.slider_container div:nth-child(2) {
+	    -webkit-animation-delay: 15s;
+	            animation-delay: 15s;
+	}
+
+	.slider_container div:nth-child(1) {
+	    -webkit-animation-delay: 20s;
+	            animation-delay: 20s;
+	}
+
+	.slider_container span {    
+	    color: #000;
+	    background: #fff;
+	    position: absolute;
+	    left: 0%;
+	    top: 280px;
+	    /*width: 400px;
+	    height: 100px;*/
+	    font-size: 30px;
+	    text-align: center;
+	    line-height: 100px;
+	    -webkit-transform:scaleY(0);
+	        -ms-transform:scaleY(0);
+	            transform:scaleY(0);
+	    -webkit-transition: all 0.5s ease-in-out;
+	            transition: all 0.5s ease-in-out;
+	}
+	/*
+	.slider_container:hover span {
+	    width: 100%;
+	    -webkit-transform:scaleY(1);
+	        -ms-transform:scaleY(1);
+	            transform:scaleY(1);
+	}
+
+    */
+
+
+	/* Custom Radio Button */
+	/* Customize the label (the container) */
+	.container_1 {
+	  display: block;
+	  position: relative;
+	  padding-left: 35px;
+	  margin-bottom: 12px;
+	  cursor: pointer;
+	  font-size: 16px;
+	  -webkit-user-select: none;
+	  -moz-user-select: none;
+	  -ms-user-select: none;
+	  user-select: none;
+	}
+
+	/* Hide the browser's default radio button */
+	.container_1 input {
+	  position: absolute;
+	  opacity: 0;
+	}
+
+	/* Create a custom radio button */
+	.checkmark {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  height: 25px;
+	  width: 25px;
+	  background-color: #eee;
+	  border-radius: 50%;
+	}
+
+	/* On mouse-over, add a grey background color */
+	.container_1:hover input ~ .checkmark {
+	  background-color: #ccc;
+	}
+
+	/* When the radio button is checked, add a orange background */
+	.container_1 input:checked ~ .checkmark {
+	  background-color: #e95d3c;
+	}
+
+	/* Create the indicator (the dot/circle - hidden when not checked) */
+	.checkmark:after {
+	  content: "";
+	  position: absolute;
+	  display: none;
+	}
+
+	/* Show the indicator (dot/circle) when checked */
+	.container_1 input:checked ~ .checkmark:after {
+	  display: block;
+	}
+
+	/* Style the indicator (dot/circle) */
+	.container_1 .checkmark:after {
+	  top: 9px;
+	  left: 9px;
+	  width: 8px;
+	  height: 8px;
+	  border-radius: 50%;
+	  background: white;
+	}
