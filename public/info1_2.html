@@ -24,27 +24,49 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<style>
+		
+		li a:hover:not(.active) {
+			border-radius: 6px;
+			background-color:#e95d3c;
+		}
+
+		.active {
+			border-radius: 6px;
+			background-color: #e95d3c;
+		}
+		::-webkit-scrollbar { 
+						display: none; 
+					}
+
+
+
+	</style>
 	</head>
 	<body class="right-sidebar">
 
 	<!-- Header -->
-		<div id="header">
-			<div class="container">			
+	<div id="header" style=" position: fixed;top: 0;left: 0;right: 0;z-index: 1030; background-color: black">
+			<div class="container " >
+					
 				<!-- Logo -->
-					<div id="logo">
-						<h1><a href="#">House Renting</a></h1>
-					</div>			
+					<div id="logo"  >
+						<h1 style="color: white"><a href="#">House Renting</a></h1>
+					</div>
+				
 				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="information.html">Homepage</a></li>
-							<li class="active"><a href="house.html">House</a></li>
-							<li><a href="right-sidebar.html">Product</a></li>
-                            <li><a href="left-sidebar.html">Contract</a></li>
-							<li><a href="profile.html">Personal</a></li>
-                            <li><a href="left-sidebar.html">Contact Us</a></li>
+					<nav id="nav"  >
+						<ul >
+							<li  ><a href="index.html" style="color: white">Homepage</a></li>
+							<li ><a href="house.html" style="color: white">House</a></li>
+							<li  ><a href="fund.html" style="color: white">Product</a></li>
+                            <li ><a href="contract.html" style="color: white">Contract</a></li>
+							<li ><a href="profile.html" style="color: white">Personal</a></li>
+                            <li ><a href="contactus.html" style="color: white">Contact Us</a></li>
+
 						</ul>
 					</nav>
+
 			</div>
 		</div>
 	<!-- Header -->

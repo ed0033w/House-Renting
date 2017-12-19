@@ -40,31 +40,34 @@
 			background-color: #e95d3c;
 		}
 	
-	#fund{
-		display: none;	
-	
-	}
-	#insurance{
-		display: none;	
+		#fund{
+			display: none;	
+		
+		}
+		#insurance{
+			display: none;	
 
-	}
-	table {
-		
-		border-collapse: collapse;
-		width: 100%;
-	}
+		}
+		table {
+			
+			border-collapse: collapse;
+			width: 100%;
+		}
 
-	th, td {
-		
-		text-align: left;
-		padding: 8px;
-	}
+		th, td {
+			
+			text-align: left;
+			padding: 8px;
+		}
 
-	tr:nth-child(even){background-color: #f2f2f2}
-	h1 {
-		
-		
-	}
+		tr:nth-child(even){background-color: #f2f2f2}
+		h1 {
+			
+			
+		}
+		::-webkit-scrollbar { 
+						display: none; 
+					}
 
 
 
@@ -84,7 +87,7 @@
 				<!-- Nav -->
 					<nav id="nav"  >
 						<ul >
-							<li class="active" ><a href="index.html" style="color: white">Homepage</a></li>
+							<li  ><a href="index.html" style="color: white"class="active">Homepage</a></li>
 							<li ><a href="house.html" style="color: white">House</a></li>
 							<li  ><a href="fund.html" style="color: white">Product</a></li>
                             <li ><a href="contract.html" style="color: white">Contract</a></li>
@@ -138,7 +141,7 @@
 	    
 			<div class="intro">
 				
-				<p style="font-family: Microsoft JhengHei;font-size: xx-large;padding-top: 100px;text-align:center;font-weight: bold;">我們提供線上申請貸款服務，你將能在家輕鬆解決一次性鉅額租金的問題</p>
+				<p style="font-family: Microsoft JhengHei;font-size: xx-large;padding-top: 150px;text-align:center;font-weight: bold;">我們提供線上申請貸款服務，你將能在家輕鬆解決一次性鉅額租金的問題</p>
 				<p style="font-family: Microsoft JhengHei;font-size: xx-large;padding-top: 50px;text-align:center;font-weight: bold;">我們利用智能合約紀錄每一次交易，均無法竄改，你將不用再擔心被騙</p>
 				<img  style="float: right;height: 100px;width: 100px;" src="images/scrolldown.png" ><img>
 				<img  style="display:block; margin:auto;" src="images/index-4.jpg" alt="fullPage" />
@@ -154,14 +157,11 @@
 	</div>
 	<div class="section" id="section4">
 		<div class="intro">
-			
+			<p style="font-family: Microsoft JhengHei;font-size: xx-large;padding-top: 300px;text-align:center;font-weight: bold;">這段旅程，我們準備好了，你呢?</p>
+				
 		</div>
 	</div>
-	<div class="section" id="section5">
-		<div class="intro">
-			
-		</div>
-	</div>
+	
 </div>
 		
 				
@@ -182,8 +182,8 @@
 <script >
   $(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#fff', '#4BBFC3', '#33bdd3', '#7BAABE', '#ccddff','#CCEEFF'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thPage','6thpage'],
+				sectionsColor: ['#fff', '#4BBFC3', '#33bdd3', '#7BAABE', '#ccddff'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thPage'],
 				menu: '#menu',
 				scrollingSpeed: 1700
 			});

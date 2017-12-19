@@ -117,7 +117,7 @@
 					background-image: url('searchicon.png');
 					background-position: 10px 10px; 
 					background-repeat: no-repeat;
-					padding: 12px 20px 12px 40px;
+					padding: 12px 0px 12px 40px;
 					-webkit-transition: width 0.4s ease-in-out;
 					transition: width 0.4s ease-in-out;
 				}
@@ -125,7 +125,9 @@
 				input[type=text]:focus {
 					width: 50%;
 				}
-
+				::-webkit-scrollbar { 
+					display: none; 
+				}
 				/* end .slideThree */
 						
 		</style>
@@ -148,7 +150,7 @@
 						<ul >
 							<li  ><a href="index.html" style="color: white">Homepage</a></li>
 							<li ><a href="house.html" style="color: white">House</a></li>
-							<li class="active" ><a href="fund.html" style="color: white">Product</a></li>
+							<li  ><a href="fund.html" style="color: white" class="active">Product</a></li>
                             <li ><a href="contract.html" style="color: white">Contract</a></li>
 							<li ><a href="profile.html" style="color: white">Personal</a></li>
                             <li ><a href="contactus.html" style="color: white">Contact Us</a></li>
@@ -227,52 +229,31 @@
 							</div>	
 						</section>
 					</div>
-					<div class="5u" style="float: left; margin-left: 10%;">
-						
-						<section style="display: flex">
-							<div style="font-size: large"style="flex: initial;">寵物 :</div> 
-							<div style="flex: initial;">
-								<div class="slideThree" style="margin: 0 1rem 0">
-									<input type="checkbox" value="None" id="slideOne" name="check" checked />
-									<label for="slideOne"></label>
-										</div>	
-							</div>	
-						</section>
-						<section style="display: flex">
-							<div style="font-size: large"style="flex: initial;">家具 :</div> 
-							<div style="flex: initial;">
-								<div class="slideThree" style="margin: 0 1rem 0">
-									<input type="checkbox" value="None" id="slideTwo" name="check" checked />
-									<label for="slideTwo"></label>
-										</div>	
-							</div>	
-						</section>
-						<section style="display: flex">
-							<div style="font-size: large"style="flex: initial;">管理員 :</div> 
-							<div style="flex: initial;">
-								<div class="slideThree" style="margin: 0 1rem 0">
-									<input type="checkbox" value="None" id="slideThree" name="check" checked />
-									<label for="slideThree"></label>
-										</div>	
-							</div>	
-						</section>
-						<section style="display: flex">
-							<div style="font-size: large"style="flex: initial;">停車場 :</div> 
-							<div style="flex: initial;">
-								<div class="slideThree" style="margin: 0 1rem 0">
-									<input type="checkbox" value="None" id="slideFour" name="check" checked />
-									<label for="slideFour"></label>
-										</div>	
-							</div>	
-						</section>
-					</div>
+				
 						</div>
 					</div>
 				</div>
 				<div class="8u">
-					<input type="text" placeholder="Search.." style="margin-top: 50px;">
+					<header>
+							<h2 style="font-family:Microsoft JhengHei;font-weight:bold;margin-top: 150px;">房租(/半年)</h2>
+					</header>
+					<input type="text" placeholder="房租(/半年)" style="">
 					<br>
-					<input type="text" placeholder="Search.." style="margin-top: 50px;">
+					<header>
+							<h2 style="font-family:Microsoft JhengHei;font-weight:bold;margin-top: 20px;">押金(價格)</h2>
+					</header>
+					<input type="text" placeholder="押金(價格)" style="">
+					<br>
+					<header>
+							<h2 style="font-family:Microsoft JhengHei;font-weight:bold;margin-top: 20px;">坪數</h2>
+					</header>
+					<input type="text" placeholder="坪數(/坪)" style="">
+					<br>
+					<header>
+							<h2 style="font-family:Microsoft JhengHei;font-weight:bold;margin-top: 20px;">地址</h2>
+					</header>
+					<input type="text" placeholder="地址" style="">
+					
 				</div>
 				<div class="8u" style=" border-width: 6px;border-color: lightseagreen;">
 					<header>
