@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-var web3 = require('../library/web3.js')
 var mysql = require('../library/mysql.js')
 
 /*
