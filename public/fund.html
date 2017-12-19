@@ -25,6 +25,17 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	<style>
+		
+		li a:hover:not(.active) {
+			border-radius: 6px;
+			background-color:#e95d3c;
+		}
+
+		.active {
+			border-radius: 6px;
+			background-color: #e95d3c;
+		}
+	
 	#fund{
 		display: none;	
 	
@@ -59,10 +70,10 @@
 
 	<!-- Header -->
 		<div id="header">
-			<div class="container">
+			<div class="container" >
 					
 				<!-- Logo -->
-					<div id="logo">
+					<div id="logo" style = "position: fixed" >
 						<h1><a href="#">House Renting</a></h1>
 					</div>
 				
@@ -84,7 +95,7 @@
 	<!-- Header -->
 		
 	<!-- Banner -->
-		<div id="banner">
+		<div id="banner" >
 			<div class="container">
 			</div>
 		</div>
@@ -94,7 +105,7 @@
 		<div id="page">
 
 			<!-- Extra -->
-			<div id="marketing" class="container">
+			<div id="marketing" class="container" >
 				<div class="row">
 				<div class="6u ">
 				<header >
