@@ -146,19 +146,6 @@ function getContractByAddress(address) {
     })
 }
 
-function buyContract(address) {
-    let cmd = "UPDATE contract SET isBuy = 1 WHERE address = ?"
-    return new Promise(function (resolve, reject) {
-        connection.query(cmd, [address], (err, result) => {
-            if (!err) {
-                resolve(result[0])
-            } else {
-                reject(err)
-            }
-        });
-    })
-}
-
 function getContractCount(ID) {
     let cmd = "SELECT auto FROM contract where ID = ?";
     return new Promise(function (resolve, reject) {
@@ -183,22 +170,6 @@ function getAccountByID(ID, callback) {
     });
 }
 
-function setVerification(ID, code) {
-    let cmd = "UPDATE user SET verification = '" + code + "' WHERE ID = '" + ID + "' ";
-    connection.query(cmd);
-}
-
-function getVerification(ID, callback) {
-    let cmd = "SELECT verification FROM user WHERE ID = ?";
-    connection.query(cmd, [ID], (err, result) => {
-        if (!err) {
-            callback(result);
-        } else {
-            console.log(err);
-        }
-    });
-}
-
 module.exports = {
     connection: connection,
     connect, connect,
@@ -214,9 +185,4 @@ module.exports = {
     getContractByAddress: getContractByAddress,
     getContractCount: getContractCount,
     getAccountByID: getAccountByID,
-
-    setVerification: setVerification,
-    getVerification: getVerification,
-
-    buyContract: buyContract,
 }
