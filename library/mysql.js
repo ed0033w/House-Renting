@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var web3 = require('../library/web3.js');
+//var web3 = require('../library/web3.js');
 var credentials = require('./credentials.js');
 
 var connection = mysql.createConnection({
