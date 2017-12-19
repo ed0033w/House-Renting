@@ -1,0 +1,10 @@
+CREATE TABLE `house`.`contract` (
+  `auto` INT NOT NULL AUTO_INCREMENT,
+  `family_room` INT NOT NULL DEFAULT 1,
+  `living_room` INT NOT NULL DEFAULT 1,
+  `bedroom` INT NOT NULL DEFAULT 1,
+  `rent` INT NOT NULL,
+  `deposit` INT NOT NULL,
+  `month` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`auto`),
+  UNIQUE INDEX `auto_UNIQUE` (`auto` ASC));
