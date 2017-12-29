@@ -67,8 +67,8 @@ app.post('/webhook/', function(req, res) {
                         case "回首頁":
                             backHome(sender, "Text echo: 回首頁")
                             break;
-                        case "保險基金":
-                            checkStocklist(sender, "Text echo: 保險基金", 0)
+                        case "各地房源":
+                            checkStocklist(sender, "Text echo: 各地房源", 0)
                             break;
                         case "房屋訂閱管理":
                             subscribeManagement_show_and_modify(sender, "Text echo: 房屋訂閱管理", "subscribeList")
@@ -979,7 +979,6 @@ function subscribe_and_readStocklist(sender, text, companyName){
 }
 
 function subscribeManagement_show_and_modify(sender, text, subscribeCompany){
-
     /*Fetch user subscribeUser_inf*/
     var subscribeCompany_list=[];
     var messageData={};
@@ -1122,7 +1121,7 @@ function checkStocklist(sender, text, part){
         data.push({
             content_type:"text",
             title:key,
-            //image_url:brands_and_photos[key],
+            image_url:brands_and_photos[key],
             payload:"checkStocklist"
         })
     }
@@ -1136,13 +1135,13 @@ function checkStocklist(sender, text, part){
         })
     }
 
-    var conversation;
-    if(part!=0){
-        conversation="更多資訊";
-    }
-    else{
-        conversation="我們列出部分美股如下，你也可以點選'更多'來找尋你感興趣的公司"
-    }
+    var conversationi = "我們列出各地房源，你也可以點選'更多'來找尋你感興趣的";
+    //if(part!=0){
+        //conversation="更多資訊";
+    //y}
+    //else{
+        //conversation="我們列出各地房源，你也可以點選'更多'來找尋你感興趣的"
+    //}
     var messageData = {
         text: conversation,
         quick_replies:data
@@ -1414,12 +1413,12 @@ function backHome(sender, text){
                         payload: "backHome"
                     }]
                 },{
-                    title:"保險基金介紹",
-                    subtitle:"為您介紹更多房屋基金與保險",
+                    title:"各地房源介紹",
+                    subtitle:"為您介紹更多各地房源",
                     image_url:"https://www.fubon.com/banking/images/personal/fund_trust/TW/Fund_Homepage.jpg",
                     buttons:[{
                         type: "postback",
-                        title: "保險基金",
+                        title: "各地房源",
                         payload: "backHome"
                     }]
                 }]

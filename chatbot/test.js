@@ -1,6 +1,6 @@
 'use strict'
 
-const token = "EAAZAznrny0WQBAGS2QyDpFqwxtuZBdQcr4ikXAfAXcZCbXFfuv6WMDdZApJa8OYNfpdxHb3C7ZCD7ZCY2CGZBCApLChUalh4z6zifVcNjtn0kE9K1DQ9kABZBZAZCy1ZCu2sFHjixbehr4lrQ4l9se8FfPfBqkWRwNHZCt3jwHHnhwKZAcGWwZBffHwgIR"
+const token = "EAAHvSChIjDUBAKZBp3kyUZBZCB5Akq3yBsvMm15Sys6XuZAhUuJatPdkA1YTej9rCNUkROXOwF7tOGKWveVeQ9qgatYYPIS2K0ZBWJEHSzlZBRxP3OPWTGUTPN4wzo8CWqEviU5rqWZBvk8w6BZC0hOWvEstZAoWbxVOBLJxMNq9G0Vu9vHHw7uT3"
 const vtoken = "FacebookChatBot"
 
 const express = require('express')
