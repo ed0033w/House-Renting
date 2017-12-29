@@ -1,0 +1,37 @@
+{
+  "name": "nccucs_fintech_rentinghouse",
+  "version": "1.0.0",
+  "description": "A Facebook Messenger bot built to work with heroku",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "hahaha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonbrown/fb-bot-heroku.git"
+  },
+  "keywords": [
+    "facebook",
+    "bot",
+    "messenger",
+    "heroku",
+    "express",
+    "node",
+    "javascript"
+  ],
+  "author": "sheng Eason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandonbrown/fb-bot-heroku/issues"
+  },
+  "homepage": "https://github.com/brandonbrown/fb-bot-heroku#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "moment": "^2.19.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {}
+}
