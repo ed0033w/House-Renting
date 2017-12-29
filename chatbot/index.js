@@ -29,20 +29,10 @@ app.get('/', function(req, res) {
     res.send("Hi I am a chatbot")
 })
 
-/*
-app.use('*', function(req,res,next){
-    console.log(req)
-    console.log(res)
-    next()
-    //console.log()
-})
- */
+
 
     const token = "EAAHvSChIjDUBAKZBp3kyUZBZCB5Akq3yBsvMm15Sys6XuZAhUuJatPdkA1YTej9rCNUkROXOwF7tOGKWveVeQ9qgatYYPIS2K0ZBWJEHSzlZBRxP3OPWTGUTPN4wzo8CWqEviU5rqWZBvk8w6BZC0hOWvEstZAoWbxVOBLJxMNq9G0Vu9vHHw7uT3"    
-    /*company and airticle content*/
-    //const allCompanyInf = require('./brandandcCompanyNews.json');
-    /*Lastest news*/
-    //const latestNews = require('./latestNews.json')
+
 
     //Facebook
     app.get('/webhook/', function(req, res) {
@@ -56,37 +46,14 @@ app.use('*', function(req,res,next){
 
 app.post('/webhook/', function(req, res) {
     var event_entry = req.body.entry[0];
-    //Received events
-    //console.log(req)
-    //console.log("====")
-    //console.log(res)
-    //process.exit(1);
-    //console.log(event_entry)
-    //console.log("====================")
-    //console.log(event_entry.messaging)
-    //console.log("====================")
-    //&& !event.message.is_echo
+
     if(event_entry.messaging){
         var messaging_events = event_entry.messaging;
-        //console.log("-")
-        //console.log("out")
-        //console.log(messaging_events);
-        //console.log("-")
-        //process.exit()
+
         for (var i = 0; i < messaging_events.length; i++) {
             var event = messaging_events[i];
             var sender = event.sender.id;
 
-            //
-            //console.log("-")
-            //console.log("out")
-            //console.log(event);
-            //console.log("-")
-            //
-            /*button*/
-            //console.log("-")//
-            //console.log(event.web_url)//
-            //console.log("-")//
             if(event.postback){
                 if(event.postback.title != undefined){
                     switch (event.postback.title) {
@@ -133,27 +100,9 @@ app.post('/webhook/', function(req, res) {
 
                     case "checkStocklist":
                         if(event.message.text == "更多:1"){
-                            checkStocklist(sender,"Text echo: 更多公司資訊",1)
+                            checkStocklist(sender,"Text echo: 更多資訊",1)
                         }
-                        else if(event.message.text == "更多:2"){
-                            checkStocklist(sender,"Text echo: 更多公司資訊",2)
-                        }
-                        else if(event.message.text == "更多:3"){
-                            checkStocklist(sender,"Text echo: 更多公司資訊",3)
-                        }
-                        else if(event.message.text == "更多:4"){
-                            checkStocklist(sender,"Text echo: 更多公司資訊",4)
-                        }
-                        else if(event.message.text == "更多:5"){
-                            checkStocklist(sender,"Text echo: 更多公司資訊",5)
-                        }
-                        else if(event.message.text == "更多:6"){
-                            checkStocklist(sender,"Text echo: 更多公司資訊",6)
-                        }
-                        else if(event.message.text == "更多:7"){
-                            checkStocklist(sender,"Text echo: 更多公司資訊",7)
-                        }
-                        else if(event.message.text !== "更多:1" && event.message.text !== "更多:2" && event.message.text !== "更多:3" && event.message.text !== "更多:4" && event.message.text !== "更多:5" && event.message.text !== "更多:6" && event.message.text !== "更多:7"){
+                        else if(event.message.text !== "更多:1"){
                             subscribe_and_readStocklist(sender, String("Text echo: "+event.message.text), event.message.text)
                         }
                         else{}
@@ -167,22 +116,12 @@ app.post('/webhook/', function(req, res) {
             }
             /*nlp text*/
             else if(event.message.text){
-                //console.log("-")
-                //console.log("nlp")
-                //console.log("-")
-                ///
-                //console.log(event.messages.text)
-                //sub_and_latestnotification(sender, "Text echo: test")
-                //fetchUsersubscribe("test")
+
                 backHome(sender, "Text echo: 回首頁")
             }
             /*Noisy*/
             else{
-                //console.log("==++==")
-                //console.log("nosiy")
-                //console.log(event)
-                //console.log(event.messages)
-                //console.log("==++==")
+
             }
 
             //process.exit(1);
@@ -272,13 +211,7 @@ function dayDiff(airticleDate){
     var nowStart = moment();
     var endDate = nowEnd.add(1,'days')
     var startDate = nowStart.subtract(7,'days')
-    //var endDate = moment.add(1,'days')
-    //var startDate = moment.subtract(7,'days')
-    //console.log(airticleDate,endDate)
-    //console.log(airticleDate.isBefore(endDate))
-    //console.log(airticleDate,startDate)
-    //console.log(airticleDate.isAfter(startDate))
-    //console.log(airticleDate.isBefore(endDate) && airticleDate.isAfter(startDate))
+
     //process.exit()
     return (airticleDate.isBefore(endDate) && airticleDate.isAfter(startDate))
 }
@@ -816,20 +749,6 @@ function moreAboutairticles(sender, text, companyName){
     var date2 = parse2.date
     var brief2 = parse2.brief
 
-    /*
-    parse3 = parsedJSON[pickRandomProperty(parsedJSON)]
-    while(((parse3.title == parse1.title) || (parse3.title == parse2.title)) && parsedJSON.length>=3)
-    {
-        parse3 = parsedJSON[pickRandomProperty(parsedJSON)]
-    }
-
-    var title3 = paser3.title
-    var link3 = paser3.newslink
-    var airticle3 = paser3.newslink
-    var photo3 = paser3.airticlePhoto
-    var date3 = paser3.date
-    var brief3 = paser3.brief
-     */
 
     /*control maxiuam 3 airticle*/ //==>if okay push!!
     var messageData = {
@@ -992,16 +911,7 @@ function subscribe_and_readStocklist(sender, text, companyName){
     var brief1 = parse1.brief
     var photo1 = parse1.airticlePhoto
 
-    //console.log(companyName)
-    //process.exit()
-    //console.log(airticle1)//wrong
-    //process.exit()
-    //console.log(companyinformation.photoLink)
-    //console.log(brief1)
-    //console.log(date1)
-    //console.log(photo1)
-    //console.log(title1)
-    //console.log(parse1)
+
     //process.exit(1)
 
     var messageData = {
@@ -1012,10 +922,10 @@ function subscribe_and_readStocklist(sender, text, companyName){
                 elements: [{
                     title: companyName,
                     subtitle: String("點選訂閱把"+companyName+"加入訂閱清單"),
-                    //item_url: companyinformation.photoLink,
-                    //image_url: companyinformation.photoLink,
-                    item_url:String("https://c8a9d666.ngrok.io/companyPhoto/"+companyName+".png"),
-                    image_url:String("https://c8a9d666.ngrok.io/companyPhoto/"+companyName+".png"),
+                    item_url: companyinformation.photoLink,
+                    image_url: companyinformation.photoLink,
+                    //item_url:String("https://c8a9d666.ngrok.io/companyPhoto/"+companyName+".png"),
+                    //image_url:String("https://c8a9d666.ngrok.io/companyPhoto/"+companyName+".png"),
                     buttons: [{
                         type: "postback",
                         title: "訂閱",
@@ -1218,7 +1128,7 @@ function checkStocklist(sender, text, part){
     }
     //更多 選項
     part = part+1
-    if(part < 7){
+    if(part < 2){
         data.push({
             content_type:"text",
             title:String("更多:"+part), //use payload to change page
@@ -1228,7 +1138,7 @@ function checkStocklist(sender, text, part){
 
     var conversation;
     if(part!=0){
-        conversation="更多公司資訊";
+        conversation="更多資訊";
     }
     else{
         conversation="我們列出部分美股如下，你也可以點選'更多'來找尋你感興趣的公司"
@@ -1352,61 +1262,12 @@ function subscribeActive(sender, text){
     })
 }
 
-/*
-function redirect_API(airticle){
-    axios({ 
-        method: "POST",
-        url: "http://192.168.1.131/api/v1/Redirector/short_code/",
-        data: {url:airticle},
-        headers: {"Pragma-T": "e8c62ed49e57dd734651fad21bfdaf40"},
-        responseType:"application/json"
-    }).then(function(response){
-        console.log(response.data.shorten_url)
-        return response.data.shorten_url
-    })
-}
-*/
+
 
 function browseAirticle(sender, text) {  //browseAirticle ==> sendMessage
 
-
-    //////////////////////
-    //////////////////////
-    //////////////////////
-    /////////////////////
-    /*Read a Links.json*/
-    /*Synchronous version*/
-    //var fs = require('fs');
-    //var links = JSON.parse(fs.readFileSync('links.json', 'utf8'));
-
-    /*Asynchronous version*/
-    /*=====================*/
-    //var messageData = {text: text}
     var parsedJSON = require('./latestNews.json');
-    /*Random*/
-    /*
-    function pickRandomProperty(obj) {
-        var result;
-        var count = 0;
-        for (var prop in obj)
-            if (Math.random() < 1/++count)
-                result = prop;
-        return result;
-    }
-    var title1 = pickRandomProperty(parsedJSON)
-    var link1 = parsedJSON[title1]
-    var airticle1 = link1[0]
-    var photo1 = link1[1]
-    var title2 = pickRandomProperty(parsedJSON)
-    var link2 = parsedJSON[title2]
-    var airticle2 = link2[0]
-    var photo2 = link2[1]
-    var title3 = pickRandomProperty(parsedJSON)
-    var link3 = parsedJSON[title3]
-    var airticle3 = link3[0]
-    var photo3 = link3[1]
-     */
-    /*top 3 latest news*/
+
     var title1 = parsedJSON[0].title 
     var link1 = parsedJSON[0].newsLink
     var airticle1 = parsedJSON[0].newsLink
@@ -1428,39 +1289,6 @@ function browseAirticle(sender, text) {  //browseAirticle ==> sendMessage
     var brief3 = parsedJSON[2].brief
     var date3 = parsedJSON[2].date
     
-    /////
-    ////
-    /*
-    var call_API = (async function(){
-        var airticle = await axios({ 
-            method: "POST",
-            url: "http://192.168.1.131/api/v1/Redirector/short_code/",
-            data: {url:airticle1},
-            headers: {"Pragma-T": "e8c62ed49e57dd734651fad21bfdaf40"},
-            responseType:"application/json"
-        })
-        console.log(airticle.data.shorten_url)
-        return airticle.data.shorten_url
-    })
-     */
-    
-    //console.log(await call_API())
-    //airticle1=redirect_API(airticle1)
-    //console.log(airticle1)
-    //process.exit()
-   
-    /*
-    (async function(){
-        airticle1 = await redirect_API(airticle1) 
-        airticle2 = await redirect_API(airticle2)
-        airticle3 = await redirect_API(airticle3)
-        console.log(airticle1)
-        console.log(airticle2)
-        console.log(airticle3)
-        process.exist()
-    })()
-    */
-
     var messageData = {
         attachment: {
             type: "template",
@@ -1546,23 +1374,6 @@ function browseAirticle(sender, text) {  //browseAirticle ==> sendMessage
         }
     })
 
-    /*
-    //Collect the user's data'
-    request({
-        url: "https://graph.facebook.com/v2.6/"+sender+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token="+token,
-        qs : {access_token: token},
-        method: "GET",
-    }, function(error, response, body) {
-        if (error) {
-            console.log("sending error")
-        } else if (response.body.error) {
-            console.log("response body error")
-        }
-        else{
-            //Restore data: write to database
-        }
-    })
-     */
         }
 
 
