@@ -174,7 +174,7 @@ function fetchUsersubscribe(text){ ///!!!!!! change!!
         //push subscription
         else if(text == "訂閱資訊"){
             var fs = require('fs');
-            var allCompanyInf=JSON.parse(fs.readFileSync('brandandcCompanyNews.json'), 'utf8');
+            var allCompanyInf=JSON.parse(fs.readFileSync('brandandCompanyNews.json'), 'utf8');
             for(var i=0; i<userIdlist.length; i++){
                 notifySubscription(userIdlist[i], allCompanyInf); 
             }
@@ -348,7 +348,7 @@ function notifyLatestNews(sender){
 function sub_and_latestnotification(userIdlist, text){
     var latestNews = require('./latestNews.json');
     var fs = require('fs');
-    var allCompanyInf = JSON.parse(fs.readFileSync('brandandcCompanyNews.json'), 'utf8');
+    var allCompanyInf = JSON.parse(fs.readFileSync('brandandCompanyNews.json'), 'utf8');
     for(var i=0; i<userIdlist.length; i++){
         //console.log(userIdlist[i])
         sub_and_latestContent(userIdlist[i], allCompanyInf, latestNews); 
@@ -707,7 +707,7 @@ function moreAboutairticles(sender, text, companyName){
     //var fs = require('fs');
     //var links = JSON.parse(fs.readFileSync('links.json', 'utf8'));
     var fs = require('fs');
-    var allCompanyInf = JSON.parse(fs.readFileSync('brandandcCompanyNews.json'), 'utf8');
+    var allCompanyInf = JSON.parse(fs.readFileSync('brandandCompanyNews.json'), 'utf8');
 
     /*Asynchronous version*/
     /*=====================*/
@@ -879,17 +879,17 @@ function subscribeList_addElement(sender, text, companyName){
 }
 
 function subscribe_and_readStocklist(sender, text, companyName){
+    console.log(companyName)
     //Add: item_url, subtitle, url
     //
     var fs = require('fs');
-    var allCompanyInf = JSON.parse(fs.readFileSync('brandandcCompanyNews.json'), 'utf8');
+    var allCompanyInf = JSON.parse(fs.readFileSync('brandandCompanyNews.json'), 'utf8');
     //var brands_and_photos = require('./links.json');
     //var companyPhotolink = brands_and_photos[companyName]
     //var allCompanyInf = require('./brandandcCompanyNews1.json');
     var parsedJSON = allCompanyInf.filter(function(value){ return value.name == companyName;})
     var companyinformation = parsedJSON[0]
     parsedJSON = companyinformation.companyNews
-
 
     /*Random*/
     //console.log(parsedJSON.length)
@@ -1135,18 +1135,20 @@ function checkStocklist(sender, text, part){
         })
     }
 
-    var conversationi = "我們列出各地房源，你也可以點選'更多'來找尋你感興趣的";
-    //if(part!=0){
-        //conversation="更多資訊";
-    //y}
-    //else{
-        //conversation="我們列出各地房源，你也可以點選'更多'來找尋你感興趣的"
-    //}
+    var conversation = "我們列出各地房源，你也可以點選'更多'來找尋你感興趣的";
+    /*
+    if(part!=0){
+        conversation="更多資訊";
+    }
+    else{
+        conversation="我們列出各地房源，你也可以點選'更多'來找尋你感興趣的"
+    }
+    */
     var messageData = {
         text: conversation,
         quick_replies:data
     }
-
+    
     request({
         url: "https://graph.facebook.com/v2.6/me/messages",
         qs : {access_token: token},

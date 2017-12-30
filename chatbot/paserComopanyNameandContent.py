@@ -118,5 +118,5 @@ if __name__ == '__main__':
     print(company)
 
 
-    with open('brandandcCompanyNews.json', 'w') as f:
+    with open('brandandCompanyNews.json', 'w') as f:
         json.dump(company,f)
