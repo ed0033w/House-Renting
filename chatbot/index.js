@@ -139,7 +139,7 @@ app.post('/webhook/', function(req, res) {
 /*interval time:1s and trigger*/
 //setInterval(fetchUsersubscribe,1000,"Text echo: 本週訂閱");
 
-//setInterval(fetchUsersubscribe,10000,"最新資訊"); //10s send different value
+setInterval(fetchUsersubscribe,10000,"最新資訊"); //10s send different value
 //setInterval(fetchUsersubscribe,10000,"訂閱資訊"); //10s send different value
 
 ///////////////////////////////////////////
@@ -984,132 +984,95 @@ function subscribeManagement_show_and_modify(sender, text, subscribeCompany){
     var messageData={};
     var subscribeUser_inf = {};//
     var resetUser=[];//
-
-    axios({
-        method: 'GET',
-        url: 'http://192.168.1.131/trista/v1/FBuser/user/'+sender,
-        headers: {"Pragma-T": "e8c62ed49e57dd734651fad21bfdaf40"},
-        responseType:"application/json"
-    }).then(function(response) {
-        /*Fetch user subscribeUser_inf*/
-        subscribeUser_inf = response.data.data.data
-        var subscribeCategory =  subscribeUser_inf.subscribeCategory
-
-        console.log("Fetch user subscribe information");
-        /*text:company*/
-        subscribeCategory.forEach(function(value){
+    ///////////////////
+    ///////////////////
+    var subscribeCategory = ['最新房源','台北市','台南市','基隆市']
+    subscribeCategory.forEach(function(value){
+        subscribeCompany_list.push({
+            content_type:"text",
+            title:value,
+            payload:"subscribeManagement_show_and_modify",
+        })
+    });
+    /*subscribe list show and modify*/
+    if(subscribeCompany=="subscribeList"){
+        subscribeCompany_list.push({
+            content_type:"text",
+            title:"完成", //use payload to change page
+            payload:"subscribeManagement_show_and_modify",
+        })
+        messageData = {
+            text:"請選擇欲取消訂閱之主題，完成後請點選'完成'",
+            quick_replies:subscribeCompany_list
+            //quick_replies:['最新房源','台北市','台南市','基隆市']
+        }
+        /*Facebook API:subscribe content*/
+        request({
+            url: "https://graph.facebook.com/v2.6/me/messages",
+            qs : {access_token: token},
+            method: "POST",
+            json: {
+                recipient: {id: sender},
+                message : messageData,
+            }
+        }, function(error, response, body) {
+            if (error) {
+                console.log("sending error")
+            } else if (response.body.error) {
+                //console.log(response.body)
+                console.log(response.body.error);
+            }
+        })
+    }
+    else if(subscribeCompany=="完成"){
+        backHome(sender, "Text echo: 完成") //
+    }
+    
+    /*subscribe list updates:text*/
+    else{
+        subscribeCompany_list.forEach(function(value){
+            resetUser.push(value.title)
+        });
+        var nth_element = resetUser.indexOf(subscribeCompany);
+        resetUser.splice(nth_element,1);
+        
+        /*Update subscribeList*/
+        subscribeCompany_list = []
+        resetUser.forEach(function(value){
             subscribeCompany_list.push({
                 content_type:"text",
                 title:value,
                 payload:"subscribeManagement_show_and_modify",
             })
         });
-
-        /*subscribe list show and modify*/
-        if(subscribeCompany=="subscribeList"){
-            subscribeCompany_list.push({
-                content_type:"text",
-                title:"完成", //use payload to change page
-                payload:"subscribeManagement_show_and_modify",
-            })
-            messageData = {
-                text:"請選擇欲取消訂閱之主題，完成後請點選'完成'",
-                quick_replies:subscribeCompany_list
+        /*modify the subscribe list*/
+        subscribeCompany_list.push({
+            content_type:"text",
+            title:"完成", //use payload to change page
+            payload:"subscribeManagement_show_and_modify",
+        })
+        messageData = {
+            text:"請選擇欲取消訂閱之主題，完成後請點選'完成'",
+            quick_replies:subscribeCompany_list
+        }
+        /*Facebook API:subscribe content*/
+        request({
+            url: "https://graph.facebook.com/v2.6/me/messages",
+            qs : {access_token: token},
+            method: "POST",
+            json: {
+                recipient: {id: sender},
+                message : messageData,
             }
-            /*Facebook API:subscribe content*/
-            request({
-                url: "https://graph.facebook.com/v2.6/me/messages",
-                qs : {access_token: token},
-                method: "POST",
-                json: {
-                    recipient: {id: sender},
-                    message : messageData,
-                }
-            }, function(error, response, body) {
-                if (error) {
-                    console.log("sending error")
-                } else if (response.body.error) {
-                    //console.log(response.body)
-                    console.log(response.body.error);
-                }
-            })
-        }
-        else if(subscribeCompany=="完成"){
-            backHome(sender, "Text echo: 完成") //
-        }
-        /*subscribe list updates:text*/
-        else{
-            subscribeCompany_list.forEach(function(value){
-                resetUser.push(value.title)
-            });
-            var nth_element = resetUser.indexOf(subscribeCompany);
-            resetUser.splice(nth_element,1);
-
-            axios({
-                method: 'PUT',
-                url: 'http://192.168.1.131/trista/v1/FBuser/user/',
-                //data: user_inf,
-                data:{
-                    id:sender,
-                    data:{
-                        first_name: subscribeUser_inf.first_name,
-                        last_name: subscribeUser_inf.last_name,
-                        profile_pic: subscribeUser_inf.profile_pic,
-                        locale: subscribeUser_inf.locale,
-                        timezone: subscribeUser_inf.timezone,
-                        gender: subscribeUser_inf.gender,
-                        readHistory:subscribeUser_inf.readHistory,
-                        subscribeCategory: resetUser
-                    }
-                },
-                headers: {"Pragma-T": "e8c62ed49e57dd734651fad21bfdaf40"},
-                responseType:"application/json"
-            }).then(function(response) {
-                console.log("User subscribe has been change!");
-            }).catch(function(error){
-                console.log("PUT! Error: User data has been existed");
-            });
-
-            /*Update subscribeList*/
-            subscribeCompany_list = []
-            resetUser.forEach(function(value){
-                subscribeCompany_list.push({
-                    content_type:"text",
-                    title:value,
-                    payload:"subscribeManagement_show_and_modify",
-                })
-            });
-            /*modify the subscribe list*/
-            subscribeCompany_list.push({
-                content_type:"text",
-                title:"完成", //use payload to change page
-                payload:"subscribeManagement_show_and_modify",
-            })
-            messageData = {
-                text:"請選擇欲取消訂閱之主題，完成後請點選'完成'",
-                quick_replies:subscribeCompany_list
+        }, function(error, response, body) {
+            if (error) {
+                console.log("sending error")
+            } else if (response.body.error) {
+                //console.log(response.body)
+                console.log(response.body.error);
             }
-            /*Facebook API:subscribe content*/
-            request({
-                url: "https://graph.facebook.com/v2.6/me/messages",
-                qs : {access_token: token},
-                method: "POST",
-                json: {
-                    recipient: {id: sender},
-                    message : messageData,
-                }
-            }, function(error, response, body) {
-                if (error) {
-                    console.log("sending error")
-                } else if (response.body.error) {
-                    //console.log(response.body)
-                    console.log(response.body.error);
-                }
-            })
-        }
-    }).catch(function(error){
-        console.log("GET request error");
-    });
+        })
+    }
 }
 
 
@@ -1143,12 +1106,12 @@ function checkStocklist(sender, text, part){
     else{
         conversation="我們列出各地房源，你也可以點選'更多'來找尋你感興趣的"
     }
-    */
+     */
     var messageData = {
         text: conversation,
         quick_replies:data
     }
-    
+
     request({
         url: "https://graph.facebook.com/v2.6/me/messages",
         qs : {access_token: token},
@@ -1289,7 +1252,7 @@ function browseAirticle(sender, text) {  //browseAirticle ==> sendMessage
     var photo3 = parsedJSON[2].airticlePhoto
     var brief3 = parsedJSON[2].brief
     var date3 = parsedJSON[2].date
-    
+
     var messageData = {
         attachment: {
             type: "template",
@@ -1353,8 +1316,8 @@ function browseAirticle(sender, text) {  //browseAirticle ==> sendMessage
             }
         }
     };
-    
-    
+
+
     request({
         url: "https://graph.facebook.com/v2.6/me/messages",
         qs : {access_token: token},
@@ -1375,7 +1338,7 @@ function browseAirticle(sender, text) {  //browseAirticle ==> sendMessage
         }
     })
 
-        }
+}
 
 
 
@@ -1389,8 +1352,9 @@ function backHome(sender, text){
                 template_type: "generic",
                 elements: [{
                     title:"House Renting",
-                    subtitle:"Let's create the life you want,together.",
-                    image_url:photo,
+                    subtitle:"建立於blockchain上的租屋平台",
+                    //image_url:photo,
+                    image_url:'http://www.humblesavers.com/wp-content/uploads/2012/10/Investment-property.jpg',
                     buttons:[{
                         type: "web_url",
                         url: link,
