@@ -38,11 +38,11 @@ async function sing_in(ID, password) {
     }
 }
 
-async function sing_up(ID, password, name, identity, email, phone, birthday, address, account) {
+async function sing_up(ID, password, name, email, phone) {
     try {
         let user = await getUserByID(ID)
         if (!user) {
-            let result = await addUser(ID, password, name, identity, email, phone, birthday, address, account)
+            let result = await addUser(ID, password, name, email, phone)
             return { type: true, inf: '註冊成功' }
         }
         else {
@@ -66,10 +66,10 @@ function getUserByID(ID) {
     })
 }
 
-function addUser(ID, password, name, identity, email, phone, birthday, address, account, isHosted) {
-    let cmd = "INSERT INTO user (ID, password, name, identity, email, phone, birthday, address, account) VALUES ?"
+function addUser(ID, password, name, email, phone) {
+    let cmd = "INSERT INTO user (ID, password, name, email, phone) VALUES ?"
     let value = [
-        [ID, password, name, identity, email, phone, birthday, address, account]
+        [ID, password, name, email, phone]
     ];
     return new Promise(function (resolve, reject) {
         connection.query(cmd, [value], (err, result) => {

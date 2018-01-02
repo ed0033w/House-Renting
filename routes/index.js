@@ -52,7 +52,7 @@ router.get('/register', function (req, res, next) {
 
 //post
 router.post('/sign_in', async function (req, res, next) {
-	console.log('sign_up-post')
+	console.log('sign_ip-post')
 	console.log(req.body)
 
 	let result = await mysql.sing_in(req.body.ID, req.body.password)
@@ -62,5 +62,19 @@ router.post('/sign_in', async function (req, res, next) {
     }
     res.json(result)
 })
+
+//post
+router.post('/sign_up', async function (req, res, next) {
+    console.log('sign_up-post')
+    console.log(req.body)
+    let user = req.body
+    let result = await mysql.sing_up(user.ID, user.password, user.name, user.email, user.phone)
+    if (result.type) {
+        req.session.user_ID = user.ID
+        req.session.user_name = user.name
+    }
+    res.json(result)
+})
+
 
 module.exports = router;
