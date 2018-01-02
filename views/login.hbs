@@ -11,6 +11,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="/sweetalert2.css">
 </head>
 
 <body>
@@ -53,39 +54,41 @@
 	</nav>
 
 	<!-- Main -->
-	<form>
-		<section id="main" style="height: 900px; background-color: lightslategrey">
-			<div class="inner">
-				<h3 style="color: snow;">用戶登入</h3>
-				<br>
-				<div class="row ">
-					<div class="form-group">
+
+	<section id="main" style="height: 900px; background-color: lightslategrey">
+		<div class="inner">
+			<h3 style="color: snow;">用戶登入</h3>
+			<br>
+			<div class="row ">
+				<form class="form-horizontal" id="sign_in-form" action="sign_in" method="post">
+
 						<div class="6u 12u$(xsmall)">
-							<input type="text" style="color: gray; border-color: snow;" name="id" id="name" value="" placeholder="Id" />
+							<input type="text" style="color: gray; border-color: snow;" name="ID" id="name" value="" placeholder="Id" />
 						</div>
-					</div>
-					<div class="form-group">
+
 						<div class="6u$ 12u$(xsmall)">
 							<input type="email" style="color: gray;border-color: snow;" name="password" id="email" value="" placeholder="Password" />
 						</div>
-					</div>
-
-				</div>
-				<br>
-				<br>
-				<input type="button" id="test" class="special button" value="Login">
+			
+				</form>
 			</div>
-		</section>
-	</form>
+			<br>
+			<br>
+			<input type="button" id="test" class="special button" value="Login">
+		</div>
+	</section>
+
 	<!-- Footer -->
 
 
 	<!-- Scripts -->
+	<script src="/sweetalert2.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/login.js"></script>
 
 </body>
 

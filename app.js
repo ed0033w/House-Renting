@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session')
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -20,7 +21,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+//cookie session
+app.use(cookieParser('B54C9B842DD16'));
+app.use(session({
+  secret: 'B54C9B842DD16',
+  cookie: { maxAge: 60 * 100000 }
+}))
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'bower_components', 'sweetalert2', 'dist')))
 
 app.use('/', index);
 app.use('/users', users);

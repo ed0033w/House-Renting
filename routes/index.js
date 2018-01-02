@@ -50,4 +50,17 @@ router.get('/register', function (req, res, next) {
 	res.render('register')
 })
 
+//post
+router.post('/sign_in', async function (req, res, next) {
+	console.log('sign_up-post')
+	console.log(req.body)
+
+	let result = await mysql.sing_in(req.body.ID, req.body.password)
+    if (result.type === 1) {
+        req.session.user_ID = result.ID
+        req.session.user_name = result.name
+    }
+    res.json(result)
+})
+
 module.exports = router;
