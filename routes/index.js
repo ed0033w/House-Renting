@@ -10,10 +10,6 @@ router.get('/', function (req, res, next) {
 	res.render('index')
 })
 
-router.get('/elements', function (req, res, next) {
-	res.render('elements')
-})
-
 router.get('/fund', function (req, res, next) {
 	res.render('fund')
 })

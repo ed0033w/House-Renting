@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
     host: credentials.mysql.host,
     user: credentials.mysql.user,
     password: credentials.mysql.password,
-    database: 'house'
+    database: 'house-renting'
 });
 
 function connect() {
