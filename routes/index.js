@@ -2,7 +2,14 @@ var express = require('express')
 var router = express.Router()
 
 var mysql = require('../library/mysql.js')
-
+var sign = async function (req, res, next) {
+    if (req.session.user_ID && req.session.user_name) {
+        next()
+    }
+    else {
+        res.redirect('views/register')
+    }
+}
 mysql.connect()
 
 /* GET home page. */
@@ -38,8 +45,8 @@ router.get('/login', function (req, res, next) {
 	res.render('login')
 })
 
-router.get('/personal', function (req, res, next) {
-	res.render('personal')
+router.get('/personal', sign, function (req, res, next) {
+	res.render('personal', { user_name: req.session.user_name,user_ID:req.session.user_ID,user_phone:req.session.user_phone,user_email:req.session.user_email })
 })
 
 router.get('/post', function (req, res, next) {
