@@ -51,6 +51,22 @@ async function sing_up(ID, password, name, email, phone) {
     } catch (err) {
         console.error(err);
     }
+
+    function addUser(ID, password, name, email, phone) {
+        let cmd = "INSERT INTO user (ID, password, name, email, phone) VALUES ?"
+        let value = [
+            [ID, password, name, email, phone]
+        ];
+        return new Promise(function (resolve, reject) {
+            connection.query(cmd, [value], (err, result) => {
+                if (!err) {
+                    resolve(result)
+                } else {
+                    reject(err)
+                }
+            })
+        })
+    }
 }
 
 function getUserByID(ID) {
@@ -66,22 +82,6 @@ function getUserByID(ID) {
     })
 }
 
-function addUser(ID, password, name, email, phone) {
-    let cmd = "INSERT INTO user (ID, password, name, email, phone) VALUES ?"
-    let value = [
-        [ID, password, name, email, phone]
-    ];
-    return new Promise(function (resolve, reject) {
-        connection.query(cmd, [value], (err, result) => {
-            if (!err) {
-                resolve(result)
-            } else {
-                reject(err)
-            }
-        })
-    })
-}
-
 function getAccountCount() {
     let cmd = "SELECT count(account) FROM user";
     connection.query(cmd, (err, result) => {
@@ -94,15 +94,19 @@ function getAccountCount() {
     })
 }
 
-async function addContract(ID, address, alias, payment, paymentDate, isGuarantee, deathBeneficiary, deathBeneficiaryRelationship, deathBeneficiaryIdentity) {
-    let cmd = "INSERT INTO contract (ID, address, alias, payment, paymentDate, isGuarantee, deathBeneficiary, deathBeneficiaryRelationship, deathBeneficiaryIdentity) VALUES ?";
+async function addContract(name, phone, address, deposit, email, ping, rent) {
+    let cmd = "INSERT INTO contract (name, phone, address, deposit, email, ping, rent) VALUES ?";
     let value = [
-        [ID, address, alias, payment, paymentDate, isGuarantee, deathBeneficiary, deathBeneficiaryRelationship, deathBeneficiaryIdentity]
+        [name, phone, address, deposit, email, ping, rent]
     ]
-    connection.query(cmd, [value], (err, result) => {
-        if (err) {
-            console.error(err)
-        }
+    return new Promise(function (resolve, reject) {
+        connection.query(cmd, [value], (err, result) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve({type: true})
+            }
+        })
     })
 }
 

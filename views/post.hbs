@@ -5,184 +5,233 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<title>Generic - Binary by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
 
-		<!-- Header -->
-			<header id="header">
-				<a href="" class="logo"><strong>HouseRenting.com</strong> </a>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
-			</header>
+<head>
+    <title>Generic - Binary by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
 
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="">Home</a></li>
-					<li><a href="house">House</a></li>
-					<li><a href="fund">Product</a></li>
-					<li><a href="personal">Personal</a></li>
-					<li><a href="elements">Contact Us</a></li>
-					<li><a href="register">Register</a></li>
-					<li><a href="login">Login</a></li>
-				</ul>
-			</nav>
+<body>
 
-		<!-- Main -->
-			<section id="main">
-				<div class="inner">
-                    <form method="post" action="#" id="post_in-form" action="post_in">
-                        <div class="row uniform 50%">
-									<div class="6u 12u$(xsmall)">
-                                        <section>
-                                        <h3>房東姓名</h3>
-										<input type="text" name="name" id="name" value="" placeholder="Name" /><br>
-                                        <h3>連絡電話</h3>
-										<input type="text" name="name" id="name" value="" placeholder="Phone" /><br>
-                                        <h3>地址</h3>
-										<input type="text" name="name" id="name" value="" placeholder="Address" /><br>
-                                        <h3>押金</h3>
-										<input type="text" name="name" id="name" value="" placeholder="(/台幣)" /><br>
-                                        </section>
-									</div>
-									<div class="6u$ 12u$(xsmall)">
-                                        <section>
-                                        <h3>聯絡信箱</h3>
-										<input type="email" name="email" id="email" value="" placeholder="Email" /><br>
-                                        <h3>坪數</h3>
-										<input type="email" name="email" id="email" value="" placeholder="(/坪)" /><br>
-                                        <h3>房租</h3>
-										<input type="email" name="email" id="email" value="" placeholder="(/半年)" /><br>
-                                        </section>
-									</div>
+    <!-- Header -->
+    <header id="header">
+        <a href="" class="logo">
+            <strong>HouseRenting.com</strong>
+        </a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="house">House</a>
+            </li>
+            <li>
+                <a href="fund">Product</a>
+            </li>
+            <li>
+                <a href="personal">Personal</a>
+            </li>
+            <li>
+                <a href="elements">Contact Us</a>
+            </li>
+            <li>
+                <a href="register">Register</a>
+            </li>
+            <li>
+                <a href="login">Login</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <section id="main">
+        <div class="inner">
+            <form method="post" action="#" id="post_in-form" action="post_in">
+                <div class="row uniform 50%">
+                    <div class="6u 12u$(xsmall)">
+                        <section>
+                            <h3>房東姓名</h3>
+                            <input type="text" name="name" id="name" value="" placeholder="Name" />
+                            <br>
+                            <h3>連絡電話</h3>
+                            <input type="phone" name="phone" id="name" value="" placeholder="Phone" />
+                            <br>
+                            <h3>地址</h3>
+                            <input type="text" name="address" id="name" value="" placeholder="Address" />
+                            <br>
+                            <h3>押金</h3>
+                            <input type="number" name="deposit" id="name" value="" placeholder="(/台幣)" />
+                            <br>
+                        </section>
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <section>
+                            <h3>聯絡信箱</h3>
+                            <input type="email" name="email" id="email" value="" placeholder="Email" />
+                            <br>
+                            <h3>坪數</h3>
+                            <input type="number" name="ping" id="email" value="" placeholder="(/坪)" />
+                            <br>
+                            <h3>房租</h3>
+                            <input type="number" name="rent" id="email" value="" placeholder="(/半年)" />
+                            <br>
+                        </section>
+                    </div>
+                </div>
+                <br>
+                <form action="/somewhere/to/upload" enctype="multipart/form-data" id="post_in-form" action="post_in">
+                    <h3>房屋圖片上傳</h3>
+
+
+                    <div class="form1">
+                        <input type='file' class="upl" name="upl[]" multiple>
+                        <div class="preview">
                         </div>
-                        <br>
-                        <form action="/somewhere/to/upload" enctype="multipart/form-data" id="post_in-form" action="post_in">
-                            <h3>房屋圖片上傳</h3>
-                            
-                                
-                                   <div class="form1">
-                                        <input type='file' class="upl" name="upl[]" multiple>
-                                        <div class="preview">
-                                        </div>
-                                    </div>
-                                        
-                        </form>
-                        <div class="row uniform 50%">
-									<div class="4u 12u$(xsmall)">
-										<input type="checkbox" id="gaurd" name="gaurd" >
-										<label for="gaurd"><h3>管理員</h3></label>
-									</div>
-                                    <div class="4u 12u$(xsmall)">
-										<input type="checkbox" id="park" name="park">
-										<label for="park"><h3>停車位</h3></label>
-									</div>
-									<div class="4u$ 12u$(xsmall)">
-										<input type="checkbox" id="desk" name="desk">
-										<label for="desk"><h3>家俱</h3></label>
-									</div>
-                                    <div class="4u$ 12u$(xsmall)">
-										<input type="checkbox" id="pet" name="pet">
-										<label for="pet"><h3>寵物</h3></label>
-									</div>
-                                    <hr style="width: 100%; border-width: 3px;">
-                                    <div class="12u$">
-                                        <h3>備註</h3>
-										<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-									</div>
-                        </div>
-                        <br>
-                        <div style="left: 40%; position: relative; ">
-                        <input type="submit" style="width: 200px;" value="Post">
-                        </div>
-                    </form>
-				</div>
-			</section>
+                    </div>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-				</ul>
-				<div class="copyright">
-					&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
-				</div>
-			</footer>
+                </form>
+                <div class="row uniform 50%">
+                    <div class="4u 12u$(xsmall)">
+                        <input type="checkbox" id="gaurd" name="gaurd">
+                        <label for="gaurd">
+                            <h3>管理員</h3>
+                        </label>
+                    </div>
+                    <div class="4u 12u$(xsmall)">
+                        <input type="checkbox" id="park" name="park">
+                        <label for="park">
+                            <h3>停車位</h3>
+                        </label>
+                    </div>
+                    <div class="4u$ 12u$(xsmall)">
+                        <input type="checkbox" id="desk" name="desk">
+                        <label for="desk">
+                            <h3>家俱</h3>
+                        </label>
+                    </div>
+                    <div class="4u$ 12u$(xsmall)">
+                        <input type="checkbox" id="pet" name="pet">
+                        <label for="pet">
+                            <h3>寵物</h3>
+                        </label>
+                    </div>
+                    <hr style="width: 100%; border-width: 3px;">
+                    <div class="12u$">
+                        <h3>備註</h3>
+                        <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div style="left: 40%; position: relative; ">
+                    <input type="button" id="test" style="width: 200px;" value="Post">
+                </div>
+            </form>
+        </div>
+    </section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li>
+                <a href="#" class="icon fa-twitter">
+                    <span class="label">Twitter</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="icon fa-facebook">
+                    <span class="label">Facebook</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="icon fa-instagram">
+                    <span class="label">Instagram</span>
+                </a>
+            </li>
+        </ul>
+        <div class="copyright">
+            &copy; Untitled. Design:
+            <a href="https://templated.co">TEMPLATED</a>. Images:
+            <a href="https://unsplash.com">Unsplash</a>.
+        </div>
+    </footer>
 
-	</body>
-    <script>
-        var Preview = new function (){
-        
-            var root = $(".form1");
-        
-            // 連續的圖片編碼
-            var imgcode = '';
-        
-            // 選取發生改變
-            this.change_file = function (){
-                root.on("change", ".upl", function (){
-                    show(this);
-                });
-            }
-        
-            // 批次圖片，先清空後再插入
-            var show = function (input){
-                if (input.files && input.files[0]) {
-                    clean();
-                    each_img(input.files);
-                }
-            }
-        
-            // 批次讀取，最後再一次寫入
-            var each_img = function (files){
-        
-                $.each(files, function (index, file){
-                    var src = URL.createObjectURL(file);
-                    create_imgcode(src);
-                });
-        
-                // 放置預覽元素後重設
-                root.find(".preview").html(imgcode);
-                reset();
-            }
-        
-        
-            // 建立圖片
-            var create_imgcode = function(src){
-                imgcode += '<img class="img" src="' + src + '">';
-            }
-            
-        
-            // 清空預覽區域
-            var clean = function (){
-                root.find(".preview").empty();
-            }
-        
-            // 還原 input[type=file]
-            var reset = function (){
-                imgcode = '';
-                root.find(".upl").val(null);
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/post.js"></script>
+
+</body>
+<script>
+    var Preview = new function () {
+
+        var root = $(".form1");
+
+        // 連續的圖片編碼
+        var imgcode = '';
+
+        // 選取發生改變
+        this.change_file = function () {
+            root.on("change", ".upl", function () {
+                show(this);
+            });
+        }
+
+        // 批次圖片，先清空後再插入
+        var show = function (input) {
+            if (input.files && input.files[0]) {
+                clean();
+                each_img(input.files);
             }
         }
-        
-        // 執行
-        Preview.change_file();
+
+        // 批次讀取，最後再一次寫入
+        var each_img = function (files) {
+
+            $.each(files, function (index, file) {
+                var src = URL.createObjectURL(file);
+                create_imgcode(src);
+            });
+
+            // 放置預覽元素後重設
+            root.find(".preview").html(imgcode);
+            reset();
+        }
 
 
-    </script>
+        // 建立圖片
+        var create_imgcode = function (src) {
+            imgcode += '<img class="img" src="' + src + '">';
+        }
+
+
+        // 清空預覽區域
+        var clean = function () {
+            root.find(".preview").empty();
+        }
+
+        // 還原 input[type=file]
+        var reset = function () {
+            imgcode = '';
+            root.find(".upl").val(null);
+        }
+    }
+
+    // 執行
+    Preview.change_file();
+
+
+</script>
+
 </html>
