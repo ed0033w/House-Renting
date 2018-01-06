@@ -12,57 +12,60 @@ var sign = async function (req, res, next) {
 }
 mysql.connect()
 
-/* GET home page. */
+/* GET page. */
 router.get('/', function (req, res, next) {
-	res.render('index')
+    res.render('index')
 })
 
 router.get('/fund', function (req, res, next) {
-	res.render('fund')
+    res.render('fund')
 })
 
 router.get('/generic', function (req, res, next) {
-	res.render('generic')
+    res.render('generic')
 })
 
 router.get('/house', function (req, res, next) {
-	res.render('house')
+    res.render('house')
 })
 
 router.get('/info', function (req, res, next) {
-	res.render('info')
+    res.render('info')
 })
 
 router.get('/info', function (req, res, next) {
-	res.render('info')
+    res.render('info')
 })
 
 router.get('/info2', function (req, res, next) {
-	res.render('info2')
+    res.render('info2')
 })
 
 router.get('/login', function (req, res, next) {
-	res.render('login')
+    res.render('login')
 })
 
-router.get('/personal', sign, function (req, res, next) {
-	res.render('personal', { user_name: req.session.user_name,user_ID:req.session.user_ID,user_phone:req.session.user_phone,user_email:req.session.user_email })
+
+router.get('/personal', sign, async function (req, res, next) {
+    let user = await mysql.getUserByID(req.session.user_ID)
+    
+	res.render('personal', { user_name: req.session.user_name,user_ID:user.ID,user_email:user.email,user_phone:user.phone })
 })
 
 router.get('/post', function (req, res, next) {
-	res.render('post')
+    res.render('post')
 })
 
 router.get('/register', function (req, res, next) {
-	res.render('register')
+    res.render('register')
 })
 
 //post
 router.post('/sign_in', async function (req, res, next) {
-	console.log('sign_ip-post')
-	console.log(req.body)
+    console.log('sign_ip-post')
+    console.log(req.body)
 
-	let result = await mysql.sing_in(req.body.ID, req.body.password)
+    let result = await mysql.sing_in(req.body.ID, req.body.password)
     if (result.type === 1) {
         req.session.user_ID = result.ID
         req.session.user_name = result.name
@@ -70,7 +73,6 @@ router.post('/sign_in', async function (req, res, next) {
     res.json(result)
 })
 
-//post
 router.post('/sign_up', async function (req, res, next) {
     console.log('sign_up-post')
     console.log(req.body)
@@ -83,5 +85,13 @@ router.post('/sign_up', async function (req, res, next) {
     res.json(result)
 })
 
+router.post('/lease', async function (req, res, next) {
+    console.log('lease-post')
+    console.log(req.body)
+
+    let result = await mysql.addContract(req.body.name, req.body.phone, req.body.address, req.body.deposit, req.body.email, req.body.ping, req.body.rent)
+
+    res.json(result)
+})
 
 module.exports = router;
