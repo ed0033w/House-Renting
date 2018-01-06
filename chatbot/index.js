@@ -57,6 +57,11 @@ app.post('/webhook/', function(req, res) {
             if(event.postback){
                 if(event.postback.title != undefined){
                     switch (event.postback.title) {
+                       /////////////
+                        case "登入":
+                            login(sender, "Text echo: 請輸入你的API key")
+                            break;
+                       ////////////
                         case "瀏覽最新房源":
                             browseAirticle(sender, "Text echo: 瀏覽最新房源")
                             break;
@@ -139,7 +144,7 @@ app.post('/webhook/', function(req, res) {
 /*interval time:1s and trigger*/
 //setInterval(fetchUsersubscribe,1000,"Text echo: 本週訂閱");
 
-setInterval(fetchUsersubscribe,10000,"最新資訊"); //10s send different value
+//setInterval(fetchUsersubscribe,10000,"最新資訊"); //10s send different value
 //setInterval(fetchUsersubscribe,10000,"訂閱資訊"); //10s send different value
 
 ///////////////////////////////////////////
@@ -1129,6 +1134,25 @@ function checkStocklist(sender, text, part){
     })
 }
 
+function login(sender, text){
+    var messageData = {text:"請輸入API key"};
+
+    request({
+        url: "https://graph.facebook.com/v2.6/me/messages",
+        qs : {access_token: token},
+        method: "POST",
+        json: {
+            recipient: {id: sender},
+            message : messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log("sending error")
+        } else if (response.body.error) {
+            console.log(response.body.error);
+        }
+    })
+}
 
 function subscribeAirticle(sender, text){
     /*Fectch the user data*/
@@ -1364,6 +1388,10 @@ function backHome(sender, text){
                         type: "postback",
                         title: "房屋訂閱管理",
                         payload: "backHome"
+                    },{
+                        type: "postback",
+                        title: "登入",
+                        payload: "login"
                     }]
                 },{
                     title:"最新房源",
