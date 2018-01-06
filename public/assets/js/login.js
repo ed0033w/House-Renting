@@ -13,7 +13,7 @@ $("#test").click(function () {
                     text: '即將導向回首頁',
                     type: 'success',
                 }).then(() => {
-                    window.location = '/'
+                    window.location = '/personal'
                 })
                 break
             }
