@@ -7,7 +7,7 @@ var sign = async function (req, res, next) {
         next()
     }
     else {
-        res.redirect('views/register')
+        res.redirect('register')
     }
 }
 mysql.connect()
