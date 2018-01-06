@@ -28,14 +28,13 @@
 					<li><a href="house">House</a></li>
 					<li><a href="fund">Product</a></li>
 					<li><a href="personal">Personal</a></li>
-					<li><a href="elements">Contact Us</a></li>
 					<li><a href="register">Register</a></li>
 					<li><a href="login">Login</a></li>
 				</ul>
 			</nav>
             <section id="banner" style="background-color: cadetblue; ">
 				<div class="inner"  >
-					<h1 style="color: snow; text-decoration:underline;margin-bottom: 200px;">台北市文山區新光路一段79號<br />
+					<h1 style="color: snow; text-decoration:underline;margin-bottom: 200px;" id="address">台北市文山區新光路一段79號<br />
  					
                      </h1>
                      <h2 style="color: snow">房東聯絡資訊：0912234567 邱天  先生</h2>
@@ -80,10 +79,10 @@
                           
                         <h2 style="color: black">房屋限制</h2>
 									<ul class="alt">
-                                        <li>管理員：</li>
-										<li>家俱：</li>
-										<li>寵物：</li>
-										<li>停車：</li>
+                                        <li>管理員：有 </li>
+										<li>家俱：有</li>
+										<li>寵物：無</li>
+										<li>停車：有</li>
 									</ul>
                          
                     
@@ -116,6 +115,8 @@
 				</div>
 			</article>
             <br>
+			<div id="map"></div>
+			<br>
              <article class="box alt" id="#three">
 								<div class="row 50% uniform">
 									<div class="4u"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
@@ -148,6 +149,36 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+				<script type="text/javascript"> 
+							  var geocoder;
+							  var map, popup;
+							  function initialize() {
+							    geocoder = new google.maps.Geocoder();
+							    popup = new google.maps.InfoWindow();
+
+							    var latlng = new google.maps.LatLng(23,122);	// map center
+							    var mapOptions = {
+							      zoom: 16,
+							      center: latlng
+							    }
+							    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		 	
+							    var address = document.getElementById("address").innerHTML;
+							    geocoder.geocode( { 'address': address}, function(results, status) {
+							      if (status == google.maps.GeocoderStatus.OK) {
+							        map.setCenter(results[0].geometry.location);
+							        var marker = new google.maps.Marker({
+							            map: map,
+							            position: results[0].geometry.location
+							        });
+							      } else {
+							        alert("Geocode was not successful for the following reason: " + status);
+							      }
+							    });
+							  }
+							</script>
+							<script src="http://maps.google.com/maps/api/js?key=AIzaSyAedPqdc5kjrUMAJPL8NqFQ7XhM3YhieUU&callback=initialize">
+							</script>
 
 	</body>
 </html>
