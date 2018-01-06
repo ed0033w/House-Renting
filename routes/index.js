@@ -48,8 +48,8 @@ router.get('/login', function (req, res, next) {
 
 router.get('/personal', sign, async function (req, res, next) {
     let user = await mysql.getUserByID(req.session.user_ID)
-    
-	res.render('personal', { user_name: req.session.user_name,user_ID:user.ID,user_email:user.email,user_phone:user.phone })
+
+    res.render('personal', { user_name: req.session.user_name, user_ID: user.ID, user_email: user.email, user_phone: user.phone })
 })
 
 router.get('/post', function (req, res, next) {
@@ -89,9 +89,9 @@ router.post('/lease', async function (req, res, next) {
     console.log('lease-post')
     console.log(req.body)
 
-    let result = await mysql.addContract(req.body.name, req.body.phone, req.body.address, req.body.deposit, req.body.email, req.body.ping, req.body.rent)
+    //let result = await mysql.addContract(req.body.name, req.body.phone, req.body.address, req.body.deposit, req.body.email, req.body.ping, req.body.rent)
 
-    res.json(result)
+    res.json({ type: true })
 })
 
 module.exports = router;
